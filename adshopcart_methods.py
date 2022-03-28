@@ -132,16 +132,16 @@ def log_out():
     sleep(2)
 
 
-def log_in():
+def log_in(username, password):
     print(f'------------------------ log_in -------------------------')
     driver.find_element(By.ID, 'hrefUserIcon').click()
     sleep(1)
     assert driver.find_element(By.XPATH, '//login-modal//div[@class="PopUp"]').is_displayed()
     # assert driver.find_element(By.CLASS_NAME, 'PopUp').is_displayed()
     sleep(3)
-    driver.find_element(By.XPATH, '//input[@name = "username"]').send_keys(locators.new_username)
+    driver.find_element(By.XPATH, '//input[@name = "username"]').send_keys(username)
     sleep(0.5)
-    driver.find_element(By.XPATH, '//input[@name = "password"]').send_keys(locators.new_password)
+    driver.find_element(By.XPATH, '//input[@name = "password"]').send_keys(password)
     sleep(0.5)
     assert driver.find_element(By.XPATH, '//button[@id = "sign_in_btnundefined"]').is_enabled()
     sleep(0.5)
@@ -152,10 +152,10 @@ def log_in():
         sleep(0.5)
     else:
         sleep(0.5)
-        if driver.find_element(By.XPATH, '//span[contains(@class,"containMiniTitle")]').text == locators.new_username:
-            print(f' user {locators.new_username} is signed in successfully')
+        if driver.find_element(By.XPATH, '//span[contains(@class,"containMiniTitle")]').text == username:
+            print(f' user {username} is signed in successfully')
         else:
-            print(f' user {locators.new_username} is not signed in successfully')
+            print(f' user {username} is not signed in successfully')
         sleep(0.25)
 
 
