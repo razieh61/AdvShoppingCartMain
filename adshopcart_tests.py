@@ -16,4 +16,5 @@ class AdShopCartPositiveTestCases(unittest.TestCase):
         methods.log_in(locators.new_username, locators.new_password)
         methods.delete_test_account()
         methods.log_in(locators.new_username, locators.new_password)
+        methods.shoppingcart()
         methods.tearDown()

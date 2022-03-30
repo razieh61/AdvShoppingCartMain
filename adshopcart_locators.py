@@ -10,6 +10,7 @@ adshopcart_home_page_title = ' Advantage Shopping'
 adshopcart_signup_page_url = 'https://advantageonlineshopping.com/#/register'
 adshopcart_myaccount_url = 'https://advantageonlineshopping.com/#/myAccount'
 adshopcart_myorders_url = 'https://advantageonlineshopping.com/#/MyOrders'
+adshopcart_shoppingcart_url = 'https://advantageonlineshopping.com/#/shoppingCart'
 
 new_username = (fake.user_name())[:15]
 new_password = fake.password(length=12)

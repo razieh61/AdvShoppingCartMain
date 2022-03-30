@@ -232,13 +232,37 @@ def check_homepage():
     sleep(0.25)
     driver.find_element(By.XPATH, '//a[@class="a-button ng-binding"]').click()
     sleep(0.25)
-    # if driver.find_element(By.XPATH,'//div[@id="registerSuccessCover"]/../a[contains(text(), " CONTINUE SHOPPING ")]').is_displayed():
-    #     print('Contact Us form is submitted and CONTINUE SHOPPING button is displayed')
-    # sleep(0.25)
-    # driver.find_element(By.XPATH, '//div[@id="registerSuccessCover"]/../a[contains(text(), " CONTINUE SHOPPING ")]').click()
 
 
-
-
+def shoppingcart():
+    print(f'------------------------ shoppingcart -------------------------')
+    driver.get(locators.adshopcart_url)
+    sleep(0.5)
+    assert driver.current_url == locators.adshopcart_url
+    sleep(1)
+    print(f'The Homepage of {locators.app} is displayed')
+    driver.find_element(By.LINK_TEXT, 'SPECIAL OFFER').click()
+    sleep(1)
+    print('--- Special Offer is clicked')
+    driver.find_element(By.XPATH, '//div[@id = "div-special-offer"]//div//a').click()
+    sleep(0.5)
+    print('--- See Offer is clicked')
+    # driver.find_element(By.XPATH, '//div[@id="productProperties"]//div//span[@title = "PURPLE"]').
+    # sleep(0.5)
+    # print('--- purple color is clicked')
+    driver.find_element(By.XPATH, '//button[@name="save_to_cart"]').click()
+    sleep(1)
+    print('--- The item is added to the shoppingcart')
+    driver.find_element(By.XPATH, '//a[@id="shoppingCartLink"]').click()
+    print('--- shoppingcart link is clicked from top nav menu')
+    assert driver.current_url == locators.adshopcart_shoppingcart_url
+    sleep(1)
+    print('--- the shoppingcart page is displayed')
+    driver.find_element(By.LINK_TEXT,"REMOVE").click()
+    sleep(0.25)
+    print('--- REMOVE link clicked to remove the item in the shoppingcart')
+    if driver.find_element(By.XPATH,'//a[@class="a-button ng-scope"]').is_displayed():
+        print('The item in the shopping cart has been removed successfully')
+        sleep(0.25)
 
 
